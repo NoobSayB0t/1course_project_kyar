@@ -1,0 +1,747 @@
+/* 1. Базовые стили */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    color: #00162e;
+    background: #ffffff;
+    line-height: 1.6;
+  }
+
+    /* 2. Header */
+  header {
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: white;
+}
+
+  .navbar {
+    background: white;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-menu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin-left: auto;
+  }
+  
+  .nav-link {
+    color: #00162e;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #0c54a0;
+  }
+
+  /* Меню "гамбургера" */
+  .hamburger {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #00162e;
+    transition: all 0.3s ease;
+  }
+  
+  /* 3. Секция с видео */
+  .main-content {
+    margin: auto;
+    background-color: #333333;
+    padding: 0 20px;
+    display: flex;
+    gap: 40px;
+  }
+  
+  .main-container {
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+  
+  .flex-container-with-images {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 496px;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .image-container-with-text {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+  }
+  
+  .horizontal-image-container {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  
+  .mini-image-container,
+  .small-image-with-margin {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .page-wrapper {
+    width: 100%;
+    display: flex;
+    background-color: #2a2a2a;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .main-content-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  
+  /* 4. Секции "О нашей компании" и "Контакты" */
+  .about-section {
+    padding: 40px;
+    border-radius: 12px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex: 1;
+  }
+  
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #ffffff;
+    position: relative;
+    padding-bottom: 15px;
+  }
+  
+  .section-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  .about-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  /* 5. Секция с формой */
+  .contact-form {
+    padding: 30px;
+    border-radius: 12px;
+    color: #ffffff;
+    flex: 1;
+    background: rgba(0,0,0,0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    font-size: 0.875rem;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: white;
+  }
+  
+  .required {
+    color: #f87171;
+  }
+  
+  .contact-info {
+    display: grid;
+    gap: 20px;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+  }
+  
+  .contact-icon {
+    width: 24px;
+    height: 24px;
+    fill: #0c54a0;
+  }
+  
+  .contact-text {
+    font-size: 16px;
+    color: #ffffff;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .social-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .social-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+  }
+  
+  /* 6. Кнопки */
+  button {
+    appearance: none;
+    background-color: transparent;
+    border: 0.125em solid #1A1A1A;
+    border-radius: 0.9375em;
+    color: #3B3B3B;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 1em 2.3em;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    width: fit-content;
+    margin: 0 auto;
+  }
+  
+  button:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+  
+  button:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+  
+  .submit-button {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+  
+  .submit-button:hover {
+    background: white;
+    color: #1e90ff;
+  }
+  
+  .button-transit {
+    text-align: center;
+  }
+  
+  /* 7. Карточки */
+  .service-card-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+  }
+  
+  .promo-card {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    margin: 0 auto;
+    width: 360px;
+    padding: 5px 5px 35px;
+    background: #333333;
+  }
+  
+  .popular-service-description1 {
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  .popular-service-image {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    max-width: initial;
+    height: 233px;
+    border: none;
+    object-fit: cover;
+  }
+  
+  .popular-service-description {
+    padding: 0;
+    padding-right: 29px;
+    padding-left: 29px;
+    margin: 0;
+    margin-top: 30px;
+    font: 400 20px Inter, sans-serif;
+    color: white;
+  }
+  
+  .popular-service-description-text-style {
+    padding: 0;
+    padding-right: 29px;
+    padding-left: 29px;
+    margin: 0;
+    margin-top: 24px;
+    font: 400 14px/19.5px Inter, sans-serif;
+    color: white;
+    text-align: left;
+  }
+  
+  .promo-box {
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-top: 33px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .promo-button {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .promo-button:hover {
+    background: white;
+    color: #1e90ff;
+    transform: translateY(-2px);
+  }
+  
+  /* 8. Секция с feature */
+  .feature-highlight-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    background-color: #2a2a2a;
+    margin: 0 auto;
+    padding: 20px;
+    font: Inter;
+  }
+  
+  .feature-highlight-section1 {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    gap: 112px;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1100px;
+    padding: 65px 20px 84px;
+  }
+  
+  .feature-description-container,
+  .feature-box,
+  .feature-highlight-section {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 auto;
+    width: calc(33.333% - 74.67px);
+  }
+  
+  .feature-highlight-card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 55px;
+    background: #1e90ff;
+    border-radius: 80px;
+    aspect-ratio: 1;
+    width: 100%;
+  }
+  
+  .image-container1,
+  .image-container2,
+  .image-container {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+  }
+  
+  .unique-feature-text,
+  .feature-title-text-style {
+    flex: 0 0 auto;
+    align-self: center;
+    padding: 0;
+    margin: 0;
+    font: 400 20px Inter, sans-serif;
+    color: white;
+    text-align: center;
+  }
+  
+  .unique-text-block {
+    flex: 0 0 auto;
+    align-self: center;
+    padding: 0;
+    margin: 0;
+    font: 400 14px/19.5px Inter, sans-serif;
+    color: white;
+    text-align: center;
+  }
+  
+  /* 9. Медиа запросы*/
+  @media screen and (max-width: 1920px) {
+    .main-content-container {
+      min-width: auto;
+      width: 100%;
+    }
+    .service-card-container {
+      min-width: auto;
+      width: 100%;
+      max-width: 1140px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+  
+  @media screen and (max-width: 1200px) {
+    .flex-container-with-images {
+      min-height: 400px;
+      padding: 1.5rem;
+    }
+    .image-container-with-text {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .service-card-container {
+      gap: 20px;
+    }
+    .promo-card {
+      width: 300px;
+    }
+    .popular-service-image {
+      height: 200px;
+    }
+
+    .feature-highlight-section1 {
+      gap: 60px;
+      padding: 40px 15px;
+    }
+    .feature-description-container,
+    .feature-box,
+    .feature-highlight-section {
+      width: calc(33.333% - 40px);
+    }
+    .feature-highlight-card {
+      padding: 40px;
+      border-radius: 60px;
+    }
+  }
+  
+  @media screen and (max-width: 992px) {
+    .main-content {
+      flex-direction: column;
+    }
+    .about-section {
+      padding-right: 0;
+    }
+    
+    .promo-card {
+      width: 250px;
+    }
+    .popular-service-description {
+      font-size: 18px;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+    .popular-service-description-text-style {
+      font-size: 13px;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+    .promo-box {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+    
+    .feature-highlight-section1 {
+      gap: 30px;
+      padding: 30px 15px;
+    }
+    .feature-description-container,
+    .feature-box,
+    .feature-highlight-section {
+      width: calc(33.333% - 20px);
+    }
+    .feature-highlight-card {
+      padding: 30px;
+      border-radius: 40px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+    .nav-menu {
+      position: fixed;
+      left: -100%;
+      top: 70px;
+      flex-direction: column;
+      background-color: white;
+      width: 100%;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+      padding: 20px 0;
+      margin-left: 0;
+    }
+    .nav-menu.active {
+      left: 0;
+    }
+    
+    .flex-container-with-images {
+      flex-direction: column;
+      gap: 2rem;
+      min-height: 300px;
+    }
+    .horizontal-image-container {
+      order: 2;
+    }
+    .about-section {
+      padding: 30px;
+    }
+    .section-title {
+      font-size: 24px;
+    }
+
+    .service-card-container {
+      flex-direction: column;
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    .promo-card {
+      width: 100%;
+      max-width: 400px;
+    }
+    .popular-service-image {
+      height: 250px;
+    }
+    .popular-service-description,
+    .popular-service-description-text-style {
+      text-align: center;
+    }
+    .promo-box {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .feature-highlight-section1 {
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .feature-description-container,
+    .feature-box,
+    .feature-highlight-section {
+      width: calc(50% - 20px);
+    }
+    .unique-feature-text,
+    .feature-title-text-style {
+      font-size: 18px;
+    }
+    .unique-text-block {
+      font-size: 13px;
+      line-height: 18px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+
+    .logo img {
+      width: 64px;
+      height: 64px;
+    }
+    .flex-container-with-images {
+      padding: 1rem;
+      min-height: 250px;
+    }
+    .image-container-with-text {
+      width: 50px;
+      height: 50px;
+    }
+    .mini-image-container,
+    .small-image-with-margin {
+      width: 6px;
+      height: 6px;
+    }
+    
+    .service-card-container {
+      padding: 30px 15px;
+      gap: 20px;
+    }
+    .promo-card {
+      padding: 5px 5px 25px;
+    }
+    .popular-service-image {
+      height: 200px;
+    }
+    .popular-service-description {
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    .popular-service-description-text-style {
+      font-size: 12px;
+      margin-top: 15px;
+    }
+    .promo-box {
+      margin-top: 20px;
+    }
+    .order-button {
+      width: 100%;
+      max-width: 200px;
+    }
+    
+    .feature-highlight-section1 {
+      flex-direction: column;
+      gap: 30px;
+      padding: 20px 10px;
+    }
+    .feature-description-container,
+    .feature-box,
+    .feature-highlight-section {
+      width: 100%;
+    }
+    .feature-highlight-card {
+      padding: 25px;
+      border-radius: 30px;
+    }
+    .unique-feature-text,
+    .feature-title-text-style {
+      font-size: 16px;
+    }
+    .unique-text-block {
+      font-size: 12px;
+      line-height: 16.8px;
+    }
+  }
+  
+  /* 10. Поддержка темной темы */
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: #ffffff;
+      color: #00162e;
+    }
+  
+    .navbar,
+    .nav-menu {
+      background: #2a2a2a;
+    }
+  
+    .nav-link {
+      color: #ffffff;
+    }
+  
+    .bar {
+      background-color: #ffffff;
+    }
+  }
+/*# sourceMappingURL=main.css.map */

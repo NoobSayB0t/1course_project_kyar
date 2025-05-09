@@ -1,0 +1,535 @@
+$font-family-base: 'Inter', sans-serif;
+$color-primary: #ffffff;
+$color-secondary: #0c54a0;
+$color-white: #ffffff;
+$color-dark: #1A1A1A;
+$color-text-light: rgba(255, 255, 255, 0.9);
+$color-gray: #64748b;
+$color-background-dark: #2a2a2a;
+
+$transition-base: all 0.3s ease;
+$transition-button: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+
+$breakpoint-large: 992px;
+$breakpoint-medium: 768px;
+$breakpoint-small: 480px;
+
+$shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+$shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin hover-transform($y: -3px) {
+  transition: $transition-base;
+  &:hover {
+    transform: translateY($y);
+  }
+}
+
+@mixin fixed-full {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: $color-primary;
+  background: $color-white;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  @include fixed-full;
+  z-index: 1000;
+  background: $color-white;
+}
+
+.navbar {
+  background: $color-white;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: $shadow-light;
+  width: 100%;
+  margin: 0;
+}
+
+.nav {
+  &-menu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin-left: auto;
+  }
+
+  &-link {
+    color: $color-primary;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+
+  &-item {
+    @media (max-width: $breakpoint-medium) {
+      margin: 10px 0;
+    }
+  }
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+
+  @media (max-width: $breakpoint-medium) {
+    display: block;
+  }
+
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: $color-secondary;
+    transition: $transition-base;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  @media (max-width: $breakpoint-medium) {
+    padding: 20px;
+  }
+}
+
+.main {
+  &-content {
+    margin: auto;
+    background-color: #333333;
+    padding: 0 20px;
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 0;
+
+    @media (max-width: $breakpoint-large) {
+      grid-template-columns: 1fr;
+    }
+
+    @media (max-width: $breakpoint-medium) {
+      flex-direction: column;
+      padding: 10px;
+    }
+  }
+
+  &-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 80px auto 0;
+    padding: 20px;
+
+    @media (max-width: $breakpoint-medium) {
+      grid-template-columns: 1fr;
+      padding: 10px;
+      margin-top: 100px;
+    }
+  }
+}
+
+// Aviation Services
+.aviation-services {
+  &-container1 {
+    background: $color-white;
+    border-radius: 24px;
+    box-shadow: $shadow-light;
+    padding: 20px;
+    transition: $transition-base;
+
+    @media (max-width: $breakpoint-medium) {
+      padding: 15px;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      background: #1e90ff;
+      color: $color-white;
+      box-shadow: $shadow-medium;
+
+      .title-style {
+        color: $color-white;
+        transform: scale(1.05);
+      }
+
+      .geography-services {
+        color: $color-text-light;
+      }
+
+      button {
+        background-color: $color-white;
+        color: rgba(0, 123, 255, 0.8);
+        border-color: $color-white;
+      }
+    }
+  }
+
+  &-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+.image-container {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.title-style {
+  font-size: 20px;
+  font-weight: 700;
+  color: $color-primary;
+  margin: 15px 0;
+  transition: $transition-base;
+
+  @media (max-width: $breakpoint-small) {
+    font-size: 16px;
+  }
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.geography-services {
+  font-size: 16px;
+  line-height: 1.6;
+  color: $color-gray;
+  transition: $transition-base;
+
+  @media (max-width: $breakpoint-small) {
+    font-size: 14px;
+  }
+}
+
+// About Section
+.about {
+  &-section {
+    padding: 40px;
+    border-radius: 12px;
+    color: $color-white;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex: 1;
+    min-width: 300px;
+
+    @media (max-width: $breakpoint-large) {
+      padding-right: 0;
+    }
+
+    @media (max-width: $breakpoint-medium) {
+      width: 100%;
+      padding: 20px;
+    }
+  }
+
+  &-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  &-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: $color-text-light;
+  }
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: $color-white;
+  position: relative;
+  padding-bottom: 15px;
+
+  @media (max-width: $breakpoint-medium) {
+    font-size: 20px;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.contact {
+  &-form {
+    padding: 30px;
+    border-radius: 12px;
+    color: $color-white;
+    flex: 1;
+    background: rgba(0,0,0,0.1);
+    min-width: 300px;
+
+    @media (max-width: $breakpoint-medium) {
+      width: 100%;
+      padding: 20px;
+    }
+
+    @media (max-width: $breakpoint-small) {
+      padding: 15px;
+    }
+  }
+
+  &-info {
+    display: grid;
+    gap: 20px;
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: $transition-base;
+
+    @media (max-width: $breakpoint-small) {
+      padding: 10px;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateX(5px);
+    }
+  }
+
+  &-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+
+  &-text {
+    font-size: 16px;
+    color: $color-white;
+
+    @media (max-width: $breakpoint-small) {
+      font-size: 14px;
+    }
+  }
+}
+
+.form {
+  &-group {
+    margin-bottom: 20px;
+  }
+
+  &-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: $color-white;
+    font-size: 0.875rem;
+  }
+
+  &-input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: $color-white;
+    border-radius: 5px;
+
+    @media (max-width: $breakpoint-small) {
+      padding: 8px;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-white;
+    }
+  }
+}
+
+.required {
+  color: #f87171;
+}
+
+.social {
+  &-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+
+    @media (max-width: $breakpoint-medium) {
+      justify-content: center;
+    }
+  }
+
+  &-button {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    @include hover-transform;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+button {
+  appearance: none;
+  background-color: transparent;
+  border: 0.125em solid $color-dark;
+  border-radius: 0.9375em;
+  color: #3B3B3B;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 1em 2.3em;
+  width: fit-content;
+  margin: 0 auto;
+
+  @media (max-width: $breakpoint-small) {
+    width: 100%;
+    padding: 0.8em 1.8em;
+    font-size: 13px;
+  }
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-dark;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+}
+
+.submit-button {
+  background: transparent;
+  color: $color-white;
+  border: 2px solid $color-white;
+  padding: 12px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: $transition-base;
+  width: 100%;
+
+  @media (max-width: $breakpoint-small) {
+    padding: 10px;
+  }
+
+  &:hover {
+    background: $color-white;
+    color: #1e90ff;
+  }
+}
+
+.button-transit {
+  text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: $color-white;
+    color: $color-primary;
+  }
+
+  .navbar,
+  .nav-menu {
+    background: $color-background-dark;
+  }
+
+  .nav-link {
+    color: $color-white;
+  }
+
+  .bar {
+    background-color: $color-white;
+  }
+}
+
+// Media Queries for Navigation
+@media (max-width: $breakpoint-medium) {
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background-color: $color-background-dark;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    padding: 20px 0;
+    margin-left: 0;
+    gap: 15px;
+
+    &.active {
+      left: 0;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-small) {
+  body {
+    padding: 5px;
+  }
+
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .logo img {
+    max-width: 120px;
+  }
+} 

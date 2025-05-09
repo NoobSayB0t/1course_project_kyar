@@ -1,0 +1,366 @@
+ $primary-color: #ffffff;
+ $secondary-color: #0c54a0;
+ $white: #ffffff;
+ $grey: #333333;
+ $transition-default: all 0.3s ease;
+ 
+ @mixin flex-center {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+ 
+ @mixin hover-transform($direction: 'y', $value: -5px) {
+   transition: $transition-default;
+   &:hover {
+     @if $direction == 'y' {
+       transform: translateY($value);
+     } @else if $direction == 'x' {
+       transform: translateX($value);
+     }
+   }
+ }
+ 
+ @mixin section-title {
+   font-size: 28px;
+   font-weight: 700;
+   margin-bottom: 20px;
+   color: $white;
+   position: relative;
+   padding-bottom: 15px;
+   
+   &:after {
+     content: '';
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 60px;
+     height: 3px;
+     background: rgba($white, 0.3);
+   }
+ }
+ 
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+ 
+ body {
+   font-family: 'Inter', sans-serif;
+   color: $primary-color;
+   background: $white;
+   line-height: 1.6;
+ }
+ 
+ .navbar {
+   background: $white;
+   padding: 15px 30px;
+   position: sticky;
+   top: 0;
+   z-index: 1000;
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+   @include flex-center;
+   justify-content: space-between;
+ }
+ 
+ .nav-menu {
+   display: flex;
+   gap: 30px;
+   list-style: none;
+   margin-left: auto;
+ }
+ 
+ .nav-link {
+   color: $primary-color;
+   text-decoration: none;
+   font-weight: 500;
+   transition: color 0.3s ease;
+   
+   &:hover {
+     color: $secondary-color;
+   }
+ }
+ 
+ .hamburger {
+   display: none;
+   cursor: pointer;
+ }
+ 
+ .bar {
+   display: block;
+   width: 25px;
+   height: 3px;
+   margin: 5px auto;
+   background-color: $primary-color;
+   transition: $transition-default;
+ }
+ 
+ #userInfoContainer {
+   padding: 40px 20px;
+   background-color: grey;
+ }
+ 
+ .promo-container {
+   max-width: 800px;
+   margin: 0 auto;
+   background-color: grey;
+   padding: 30px;
+   border-radius: 12px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   transition: $transition-default;
+   border: 2px solid #000000;
+   @include hover-transform('y', -5px);
+ }
+ 
+ .promo-title {
+   font-size: 24px;
+   font-weight: 700;
+   color: $primary-color;
+   margin-bottom: 20px;
+   text-align: center;
+   position: relative;
+   padding-bottom: 15px;
+   
+   &:after {
+     content: '';
+     position: absolute;
+     bottom: 0;
+     left: 50%;
+     transform: translateX(-50%);
+     width: 60px;
+     height: 3px;
+     background: $secondary-color;
+   }
+ }
+ 
+ .user-info {
+   display: grid;
+   gap: 15px;
+   
+   p {
+     padding: 12px;
+     background: $white;
+     border-radius: 8px;
+     transition: $transition-default;
+     @include hover-transform('x', 5px);
+     
+     &:hover {
+       background: #f0f0f0;
+     }
+   }
+   
+   strong {
+     color: $secondary-color;
+     margin-right: 10px;
+   }
+ }
+ 
+ .main-content {
+   margin: auto;
+   background-color: $grey;
+   padding: 0 20px;
+   display: flex;
+   gap: 40px;
+ }
+ 
+ .about-section {
+   padding: 40px;
+   border-radius: 12px;
+   color: $white;
+   display: flex;
+   flex-direction: column;
+   gap: 30px;
+   flex: 1;
+ }
+ 
+ .about-content {
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 30px;
+ }
+ 
+ .section-title {
+   @include section-title;
+ }
+ 
+ .about-text {
+   font-size: 16px;
+   line-height: 1.6;
+   color: rgba($white, 0.9);
+ }
+ 
+ .contact-info {
+   display: grid;
+   gap: 20px;
+ }
+ 
+ .contact-item {
+   display: flex;
+   align-items: center;
+   gap: 15px;
+   padding: 15px;
+   background: rgba($white, 0.1);
+   border-radius: 8px;
+   transition: $transition-default;
+   @include hover-transform('x', 5px);
+   
+   &:hover {
+     background: rgba($white, 0.15);
+   }
+ }
+ 
+ .contact-icon {
+   width: 24px;
+   height: 24px;
+   fill: $secondary-color;
+ }
+ 
+ .contact-text {
+   font-size: 16px;
+   color: $white;
+ }
+ 
+ .social-links {
+   display: flex;
+   gap: 15px;
+   margin-top: 10px;
+ }
+ 
+ .social-button {
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   @include flex-center;
+   background: rgba($white, 0.1);
+   transition: $transition-default;
+   @include hover-transform('y', -3px);
+   
+   &:hover {
+     background: rgba($white, 0.2);
+   }
+ }
+
+ .contact-form {
+   padding: 30px;
+   border-radius: 12px;
+   color: $white;
+   flex: 1;
+   background: rgba(0, 0, 0, 0.1);
+ }
+ 
+ .form-group {
+   margin-bottom: 20px;
+ }
+ 
+ .form-label {
+   display: block;
+   margin-bottom: 0.5rem;
+   color: $white;
+   font-size: 0.875rem;
+ }
+ 
+ .form-input {
+   width: 100%;
+   padding: 12px;
+   background: rgba($white, 0.08);
+   border: 1px solid rgba($white, 0.2);
+   color: $white;
+   border-radius: 5px;
+   
+   &:focus {
+     outline: none;
+     border-color: $white;
+   }
+ }
+ 
+ .required {
+   color: #f87171;
+ }
+ 
+ .submit-button {
+   background: transparent;
+   color: $white;
+   border: 2px solid $white;
+   padding: 12px 30px;
+   border-radius: 25px;
+   cursor: pointer;
+   font-size: 16px;
+   transition: $transition-default;
+   width: 100%;
+   
+   &:hover {
+     background: $white;
+     color: #1e90ff;
+   }
+ }
+ 
+ @media (max-width: 992px) {
+   .main-content {
+     flex-direction: column;
+   }
+   
+   .about-section {
+     padding-right: 0;
+   }
+ }
+ 
+ @media (max-width: 768px) {
+   .hamburger {
+     display: block;
+   }
+   
+   .nav-menu {
+     position: fixed;
+     left: -100%;
+     top: 70px;
+     flex-direction: column;
+     background-color: $white;
+     width: 100%;
+     text-align: center;
+     transition: 0.3s;
+     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+     padding: 20px 0;
+     margin-left: 0;
+     
+     &.active {
+       left: 0;
+     }
+   }
+   
+   .about-section {
+     padding: 30px;
+   }
+   
+   .section-title {
+     font-size: 24px;
+   }
+   
+   .promo-container {
+     padding: 20px;
+   }
+   
+   .promo-title {
+     font-size: 20px;
+   }
+ }
+ 
+ @media (prefers-color-scheme: dark) {
+   body {
+     background: $white;
+     color: $primary-color;
+   }
+   
+   .navbar,
+   .nav-menu {
+     background: #2a2a2a;
+   }
+   
+   .nav-link {
+     color: $white;
+   }
+   
+   .bar {
+     background-color: $white;
+   }
+ } 

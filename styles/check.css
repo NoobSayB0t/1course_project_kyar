@@ -1,0 +1,476 @@
+/* 1. Базовые стили */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+  background: #ffffff;
+  line-height: 1.6;
+}
+
+/* 2. Header */
+header {
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: white;
+}
+
+.navbar {
+  background: #333333;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin-left: auto;
+}
+
+.nav-link {
+  color: #00162e;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #0c54a0;
+}
+
+/* 3. Меню "гамбургер" */
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+/* 4. Контейнер с меню */
+.container {
+  display: flex;
+  background-color: #3B3B3B;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* 5. Форма для меню */
+.service-selection-form-container {
+  max-width: 706px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #2a2a2a;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.service-type-selection-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+/* 6. Меню */
+.service-type-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.service-type-wrapper {
+  display: block;
+  cursor: pointer;
+  width: 100%;
+}
+
+.service-type-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  user-select: none;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.service-type-container:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.service-type-radio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.service-type-radio:checked + .service-type-container {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.service-type-radio:focus + .service-type-container {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+.service-type-radio:active + .service-type-container {
+  transform: translateY(0);
+  transition: all 0.1s ease;
+}
+
+/* 7. Иконки */
+.icon {
+  width: 2rem;
+  height: 2rem;
+  color: #ffffff;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.service-type-container:hover .icon {
+  transform: scale(1.1);
+}
+
+.service-type-radio:checked + .service-type-container .icon {
+  transform: scale(1.2);
+}
+
+/* 8. Элементы формы(выборка) */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  font-size: 0.875rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 5px;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: white;
+}
+
+.required {
+  color: #f87171;
+}
+
+/* 9. Кнопки */
+button {
+  appearance: none;
+  background-color: transparent;
+  border: 0.125em solid #1A1A1A;
+  border-radius: 0.9375em;
+  color: #3B3B3B;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 1em 2.3em;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+button:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.submit-button {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 12px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.submit-button:hover {
+  background: white;
+  color: #1e90ff;
+}
+
+.button-transit {
+  text-align: center;
+}
+
+/* 10. Секция "О нашей компании" и "Контакты" */
+.main-content {
+  margin: auto;
+  background-color: #333333;
+  padding: 0 20px;
+  display: flex;
+  gap: 40px;
+}
+
+.about-section {
+  padding: 40px;
+  border-radius: 12px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  flex: 1;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.about-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 11. Секция "Контакты" */
+.contact-info {
+  display: grid;
+  gap: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(5px);
+}
+
+.contact-icon {
+  width: 24px;
+  height: 24px;
+  fill: #0c54a0;
+}
+
+.contact-text {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+/* 12. Социальные сети */
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.social-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* 13. Секция с формой */
+.contact-form {
+  padding: 30px;
+  border-radius: 12px;
+  color: #ffffff;
+  flex: 1;
+  background: rgba(0,0,0,0.1);
+}
+
+/* 14. Медиа запросы */
+@media (max-width: 992px) {
+  .main-content {
+    flex-direction: column;
+  }
+  
+  .about-section {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    padding: 20px 0;
+    margin-left: 0;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .service-selection-form-container {
+    padding: 1.5rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-section {
+    padding: 30px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-selection-form-container {
+    padding: 1rem;
+  }
+
+  .service-type-selection-heading {
+    font-size: 1.125rem;
+  }
+
+  .form-input,
+  .submit-button {
+    font-size: 0.875rem;
+  }
+}
+
+/* 15. Поддержка темной темы */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #ffffff;
+    color: #00162e;
+  }
+
+  .navbar,
+  .nav-menu {
+    background: #2a2a2a;
+  }
+
+  .nav-link {
+    color: #ffffff;
+  }
+
+  .bar {
+    background-color: #ffffff;
+  }
+
+  .service-selection-form-container {
+    background: #2a2a2a;
+  }
+
+  .form-input {
+    background: #333333;
+    color: #ffffff;
+    border-color: #4a4a4a;
+  }
+
+  .service-type-container {
+    background: #333333;
+    border-color: #4a4a4a;
+  }
+
+  .service-type-container:hover {
+    background: #404040;
+  }
+
+  .required {
+    color: #f87171;
+  }
+}
+/*# sourceMappingURL=check.css.map */

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="contact.xsl"?>
+ <student>
+    <fullname>Короткевич Артем Сергеевич</fullname>
+    <faculty>Информационных технологий</faculty>
+    <course>1</course>
+    <group>10</group>
+    <phone>+375 (29) 394-04-00</phone>
+    <email>karatkevich.artem@gmail.com</email>
+ </student> 
