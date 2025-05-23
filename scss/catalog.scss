@@ -167,7 +167,6 @@ header {
   }
 }
 
-// Aviation Services
 .aviation-services {
   &-container1 {
     background: $color-white;
@@ -244,7 +243,6 @@ header {
   }
 }
 
-// About Section
 .about {
   &-section {
     padding: 40px;
@@ -498,7 +496,6 @@ button {
   }
 }
 
-// Media Queries for Navigation
 @media (max-width: $breakpoint-medium) {
   .nav-menu {
     position: fixed;
